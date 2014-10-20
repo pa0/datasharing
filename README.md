@@ -41,9 +41,9 @@ Kilka przykładów:
 
 * output z urządzenia pomiarowego [binary file](http://en.wikipedia.org/wiki/Binary_file)
 * dane z Twitera [JSON](http://en.wikipedia.org/wiki/JSON)
-* dane do [metaanalizy](http://github.com/pa0/datasharing/dane do metaanalizy.csv)
+* dane do [metaanalizy](https://github.com/pa0/datasharing/blob/master/dane%20do%20metaanalizy.csv)
 
-Przeliczanie lub zmienianie danych jest częstym błedem, który sprawia, że statystyk musi najpierw wykonać dedektywistyczną pracę analilzując dlaczego dane wyglądają właśnie w taki sposób. 
+Przeliczanie lub zmienianie danych jest częstym błędem, który sprawia, że statystyk musi najpierw wykonać detektywistyczną pracę analizując dlaczego dane wyglądają właśnie w taki sposób. 
 
 ### Schludny format danych
 
@@ -54,17 +54,17 @@ Dla przypomnienia 4 reguły dotyczące przygotowania danych:
 1. każda zmienna zawiera się w jednej kolumnie
 1. każda obserwacja zawiera się w jednym wierszu
 1. dane powinny mieścić się w jednej tabeli
-1. jeśli z różnych wględów potrzebne jest kilka tabel powiny one zawierać kolumnę z wartościami (ID) pozwalającymi połączyć je ze sobą
+1. jeśli z różnych względów potrzebne jest kilka tabel powinny one zawierać kolumnę z wartościami (ID) pozwalającymi połączyć je ze sobą
 
 Jednym z dobrych zwyczajów jest umieszczenie w pierwszym wierszu danych *pełnej* nazwy zmiennej, np.: 'WiekPodczasBadania' zamiast 'WPB'
 W przypadku danych kwestionariuszowych często kolejne pytania składają się na jakiś wynik sumaryczny - w nazwie kolumn można to zawrzeć podając kolejno kw1, kw2, ... kwN, gdzie "kw" jest nazwą kwestionariusza a jeszcze lepiej skali.
 
-Dane moga być zapisane w Excelu, lecz najlepiej w jednym arkuszu bez makr i formuł. Alternatywnym dobrym formatem jest plik tekstowy [CSV](http://en.wikipedia.org/wiki/Comma-separated_values) lub [TAB-delimited](http://en.wikipedia.org/wiki/Tab-separated_values).
+Dane mogą być zapisane w Excelu, lecz najlepiej w jednym arkuszu bez makr i formuł. Alternatywnym dobrym formatem jest plik tekstowy [CSV](http://en.wikipedia.org/wiki/Comma-separated_values) lub [TAB-delimited](http://en.wikipedia.org/wiki/Tab-separated_values).
 
 
 ### Reguły przeliczania (książka kodowa)
 
-W wiekszości przypadków dane powinny być opisane szerzej niż wynika to z ich charakterystyki liczbowej. Minimalnie powinny być podane:
+W większości przypadków dane powinny być opisane szerzej niż wynika to z ich charakterystyki liczbowej. Minimalnie powinny być podane:
 
 1. Informacja o zmiennych (wraz z jednostkami, np. wiek w latach) 
 1. Sposób uzyskania z danych surowych zmiennych
