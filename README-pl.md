@@ -1,8 +1,8 @@
 Jak udostępnić dane statystykowi?
 ===========
 
-To jest przewodnik dla tych, którzy chcą skorzystać z pomocy stattystyka, co wiąże się z przekazaniem mu jakiś danych.
-Szczególnie mam na myśli
+To jest przewodnik dla tych, którzy chcą skorzystać z pomocy statystyka, co wiąże się z przekazaniem mu jakiś danych.
+Szczególnie mam na myśli:
 
 * współpracujących nad pracą badawczą
 * studentów i doktorantów, którzy potrzebują pomocy w obliczeniach lub konsultacji
@@ -14,174 +14,95 @@ Oczywiście statystycy przeważnie potrafią z każdej formy danych przygotować
 Co powinien otrzymać statystyk?
 ====================
 
-Dla przyśpieszenia i ułatwienia analiz dane powinny zawierać:
+Dla przyśpieszenia i ułatwienia analiz dane powinny być:
 
-1. Dane surowe,
-2. zapisane wg schematu:
+1. Danymi surowymi,
+2. zapisane wg schludnego schematu:
 	* każda zmienna zawiera jedną kolumnę
 	* każdy wiersz zawiera jedną obserwację
 	* każdy pomiar tworzy tabelę
-3. książkę kodową opisującą każdą zmienną z jej możliwymi wartościami (np. zakres, lub kategorie)
-4. oraz dokładny przepis jak z danych surowych uzyskać zmienną 
+3. z książką kodową opisującą każdą zmienną z jej możliwymi wartościami (np. zakres, lub kategorie)
+4. oraz dokładny przepis jak z danych surowych uzyskać zmienne. 
+
+Osobną kwestią jest umiejętne sformułowanie problemu badawczego i pytania do statystyka. Ale zajmijmy się najpierw danymi ;-)
 
 Pokrótce o każdym z punktów: 
 
-
 ### Surowe dane
 
+Surowe dane mają tą cechę, że są efektem pomiaru nie poddanym żadnym manipulacjom. Czy to będzie plik wynikowy z przyrządu pomiarowego, czy ręcznie wprowadzone liczby z pomiaru kwestionariuszowego - dane są ok, jeśli nic z nim nie robiono. Nic to znaczy:
 
+1. żaden program komputerowy ich nie obrabiał
+1. nie były zmieniane żadne wartości
+1. nic nie było też usuwane
+1. nie były też dokonowane żadne podsumowania i analizy w pliku
 
-It is critical that you include the rawest form of the data that you have access to. Here are some examples of the
-raw form of data:
+Kilka przykładów:
 
 * The strange [binary file](http://en.wikipedia.org/wiki/Binary_file) your measurement machine spits out
 * The unformatted Excel file with 10 worksheets the company you contracted with sent you
 * The complicated [JSON](http://en.wikipedia.org/wiki/JSON) data you got from scraping the [Twitter API](https://twitter.com/twitterapi)
-* The hand-entered numbers you collected looking through a microscope
 
-You know the raw data is in the right format if you: 
+Przeliczanie lub zmienianie danych jest częstym błedem, który sprawia, że statystyk musi najpierw wykonać dedektywistyczną pracę analilzując dlaczego dane wyglądają właśnie w taki sposób. 
 
-1. Ran no software on the data
-1. Did not manipulate any of the numbers in the data
-1. You did not remove any data from the data set
-1. You did not summarize the data in any way
+### Schludny format danych
 
-If you did any manipulation of the data at all it is not the raw form of the data. Reporting manipulated data
-as raw data is a very common way to slow down the analysis process, since the analyst will often have to do a
-forensic study of your data to figure out why the raw data looks weird. 
+Wielkość i format pliku nie ma znaczenia. Ważny jest porządek. Zgodnie z zasadą "garbage in = garbage out" to co jest potrzebne do analizy to przejrzystość sposobu zapisania danych. Na poziomie ogólnym można o tym poczytać u [Hadley Wickham](http://had.co.nz/) w [tym artykule](http://vita.had.co.nz/papers/tidy-data.pdf) lub zobaczyć na [tym filmie](http://vimeo.com/33727555). Przedstawiony tam punkt widzenia dotyczy pakietu [R](http://www.r-project.org/), który może jest, a może nie jest Tobie znany, ale ma zastosowanie w większości przypadków przygotowywania danych.
 
-### The tidy data set
+Dla przypomnienia 4 reguły dotyczące przygotowania danych:
 
-The general principles of tidy data are laid out by [Hadley Wickham](http://had.co.nz/) in [this paper](http://vita.had.co.nz/papers/tidy-data.pdf)
-and [this video](http://vimeo.com/33727555). The paper and the video are both focused on the [R](http://www.r-project.org/) package, which you
-may or may not know how to use. Regardless the four general principles you should pay attention to are:
+1. każda zmienna zawiera się w jednej kolumnie
+1. każda obserwacja zawiera się w jednym wierszu
+1. dane powinny mieścić się w jednej tabeli
+1. jeśli z różnych wględów potrzebne jest kilka tabel powiny one zawierać kolumnę z wartościami (ID) pozwalającymi połączyć je ze sobą
 
-1. Each variable you measure should be in one column
-1. Each different observation of that variable should be in a different row
-1. There should be one table for each "kind" of variable
-1. If you have multiple tables, they should include a column in the table that allows them to be linked
+Jednym z dobrych zwyczajów jest umieszczenie w pierwszym wierszu danych *pełnej* nazwy zmiennej, np.: 'WiekPodczasBadania' zamiast 'WPB'
+W przypadku danych kwestionariuszowych często kolejne pytania składają się na jakiś wynik sumaryczny - w nazwie kolumn można to zawrzeć podając kolejno kw1, kw2, ... kwN, gdzie "kw" jest nazwą kwestionariusza a jeszcze lepiej skali.
 
-While these are the hard and fast rules, there are a number of other things that will make your data set much easier
-to handle. First is to include a row at the top of each data table/spreadsheet that contains full row names. 
-So if you measured age at diagnosis for patients, you would head that column with the name `AgeAtDiagnosis` instead
-of something like `ADx` or another abbreviation that may be hard for another person to understand. 
+Dane moga być zapisane w Excelu, lecz najlepiej w jednym arkuszu bez makr i formuł. Alternatywnym dobrym formatem jest plik tekstowy [CSV](http://en.wikipedia.org/wiki/Comma-separated_values) lub [TAB-delimited](http://en.wikipedia.org/wiki/Tab-separated_values).
 
 
-Here is an example of how this would work from genomics. Suppose that for 20 people you have collected gene expression measurements with 
-[RNA-sequencing](http://en.wikipedia.org/wiki/RNA-Seq). You have also collected demographic and clinical information
-about the patients including their age, treatment, and diagnosis. You would have one table/spreadsheet that contains the clinical/demographic
-information. It would have four columns (patient id, age, treatment, diagnosis) and 21 rows (a row with variable names, then one row
-for every patient). You would also have one spreadsheet for the summarized genomic data. Usually this type of data
-is summarized at the level of the number of counts per exon. Suppose you have 100,000 exons, then you would have a
-table/spreadsheet that had 21 rows (a row for gene names, and one row for each patient) and 100,001 columns (one row for patient
-ids and one row for each data type). 
+### Reguły przeliczania (książka kodowa)
 
-If you are sharing your data with the collaborator in Excel, the tidy data should be in one Excel file per table. They
-should not have multiple worksheets, no macros should be applied to the data, and no columns/cells should be highlighted. 
-Alternatively share the data in a [CSV](http://en.wikipedia.org/wiki/Comma-separated_values) or [TAB-delimited](http://en.wikipedia.org/wiki/Tab-separated_values) text file.
+W wiekszości przypadków dane powinny być opisane szerzej niż wynika to z ich charakterystyki liczbowej. Minimalnie powinny być podane:
 
+1. Informacja o zmiennych (wraz z jednostkami, np. wiek w latach) 
+1. Sposób uzyskania z danych surowych zmiennych
+1. Informację o planie badawczym - w jaki sposób dane zostały pozyskane (np. powtarzane pomiary, badania kwestionariuszowe, itp.)
 
-### The code book
+Format tego dokumentu jest dowolny tekstowy, który jest Tobie wygodny.
 
-For almost any data set, the measurements you calculate will need to be described in more detail than you will sneak
-into the spreadsheet. The code book contains this information. At minimum it should contain:
+#### Jak opisać zmienne
 
-1. Information about the variables (including units!) in the data set not contained in the tidy data 
-1. Information about the summary choices you made
-1. Information about the experimental study design you used
+Jeśli w zbiorze z danymi zamieszczono cyfry także dla zmiennych kategorialnych (np. wykształcenie, płeć) koniecznym jest podanie jakie cyfry jakim kategoriom odpowiadają, ale preferowanym sposobem zapisu jest używanie opisów tekstowych: "kobieta" - "mężczyzna", "niski" - "średni" - "wysoki". Ten sposób zmniejsza liczbę błędów związaną z kodowaniem.
 
-In our genomics example, the analyst would want to know what the unit of measurement for each
-clinical/demographic variable is (age in years, treatment by name/dose, level of diagnosis and how heterogeneous). They 
-would also want to know how you picked the exons you used for summarizing the genomic data (UCSC/Ensembl, etc.). They
-would also want to know any other information about how you did the data collection/study design. For example,
-are these the first 20 patients that walked into the clinic? Are they 20 highly selected patients by some characteristic
-like age? Are they randomized to treatments? 
+Braki danych powinny być zakodowane wartością `NA`. 
 
-A common format for this document is a Word file. There should be a section called "Study design" that has a thorough
-description of how you collected the data. There is a section called "Code book" that describes each variable and its
-units. 
-
-### How to code variables
-
-When you put variables into a spreadsheet there are several main categories you will run into depending on their [data type](http://en.wikipedia.org/wiki/Statistical_data_type):
-
-1. Continuous
-1. Ordinal
-1. Categorical
-1. Missing 
-1. Censored
-
-Continuous variables are anything measured on a quantitative scale that could be any fractional number. An example
-would be something like weight measured in kg. [Ordinal data](http://en.wikipedia.org/wiki/Ordinal_data) are data that have a fixed, small (< 100) number of levels but are ordered. 
-This could be for example survey responses where the choices are: poor, fair, good. [Categorical data](http://en.wikipedia.org/wiki/Categorical_variable) are data where there
-are multiple categories, but they aren't ordered. One example would be sex: male or female. [Missing data](http://en.wikipedia.org/wiki/Missing_data) are data
-that are missing and you don't know the mechanism. You should code missing values as `NA`. [Censored data](http://en.wikipedia.org/wiki/Censoring_(statistics\)) are data
-where you know the missingness mechanism on some level. Common examples are a measurement being below a detection limit
-or a patient being lost to follow-up. They should also be coded as `NA` when you don't have the data. But you should
-also add a new column to your tidy data called, "VariableNameCensored" which should have values of `TRUE` if censored 
-and `FALSE` if not. In the code book you should explain why those values are missing. It is absolutely critical to report
-to the analyst if there is a reason you know about that some of the data are missing. You should also not [impute](http://en.wikipedia.org/wiki/Imputation_(statistics\))/make up/
-throw away missing observations.
-
-In general, try to avoid coding categorical or ordinal variables as numbers. When you enter the value for sex in the tidy
-data, it should be "male" or "female". The ordinal values in the data set should be "poor", "fair", and "good" not 1, 2 ,3.
-This will avoid potential mixups about which direction effects go and will help identify coding errors. 
-
-Always encode every piece of information about your observations using text. For example, if you are storing data in Excel and use a form of colored text or cell background formatting to indicate information about an observation ("red variable entries were observed in experiment 1.") then this information will not be exported (and will be lost!) when the data is exported as raw text.  Every piece of data should be encoded as actual text that can be exported.  
-
-### The instruction list/script
-
-You may have heard this before, but [reproducibility is kind of a big deal in computational science](http://www.sciencemag.org/content/334/6060/1226).
-That means, when you submit your paper, the reviewers and the rest of the world should be able to exactly replicate
-the analyses from raw data all the way to final results. If you are trying to be efficient, you will likely perform
-some summarization/data analysis steps before the data can be considered tidy. 
-
-The ideal thing for you to do when performing summarization is to create a computer script (in `R`, `Python`, or something else) 
-that takes the raw data as input and produces the tidy data you are sharing as output. You can try running your script
-a couple of times and see if the code produces the same output. 
-
-In many cases, the person who collected the data has incentive to make it tidy for a statistician to speed the process
-of collaboration. They may not know how to code in a scripting language. In that case, what you should provide the statistician
-is something called [pseudocode](http://en.wikipedia.org/wiki/Pseudocode). It should look something like:
-
-1. Step 1 - take the raw file, run version 3.1.2 of summarize software with parameters a=1, b=2, c=3
-1. Step 2 - run the software separately for each sample
-1. Step 3 - take column three of outputfile.out for each sample and that is the corresponding row in the output data set
-
-You should also include information about which system (Mac/Windows/Linux) you used the software on and whether you 
-tried it more than once to confirm it gave the same results. Ideally, you will run this by a fellow student/labmate
-to confirm that they can obtain the same output file you did. 
+Wszelkie informacje zawarte w plikach z danymi powinny być dostępne w postaci tekstowej, tzn. jeśli np. w Excelu kolorami zaznaczone są osoby o określonej płci lub grupy to po imporcie do pakietu statystycznego ta informacja zginie.
 
 
-
-
-What you should expect from the analyst
+Czego można się spodziewać po statystyki
 ====================
 
-When you turn over a properly tidied data set it dramatically decreases the workload on the statistician. So hopefully
-they will get back to you much sooner. But most careful statisticians will check your recipe, ask questions about
-steps you performed, and try to confirm that they can obtain the same tidy data that you did with, at minimum, spot
-checks.
+Jeśli otrzyma on tak przygotowane dane wynik analiz będzie dostępny dużo szybciej. Oczywiście nie oznacza to braku pytań i wiele sytuacji z danymi wymyka się z tych ram. Ale ich przestrzeganie pozwoli ograniczyć do minimum _inżynierię wsteczną_ aby uzyskać czyste, analizowalne dane.
 
-You should then expect from the statistician:
+Dobrze zrobiona analiza statystyczna zawiera:
 
-1. An analysis script that performs each of the analyses (not just instructions)
-1. The exact computer code they used to run the analysis
-1. All output files/figures they generated. 
+1. Opis procedur analitycznych 
+1. Skrypt do ich przeprowadzenia samodzielnie (w przypadku R)
+1. Pliki wynikowe w postaci raportu z tabelami i rycinami, które analiza wygenerowała
 
-This is the information you will use in the supplement to establish reproducibility and precision of your results. Each
-of the steps in the analysis should be clearly explained and you should ask questions when you don't understand
-what the analyst did. It is the responsibility of both the statistician and the scientist to understand the statistical
-analysis. You may not be able to perform the exact analyses without the statistician's code, but you should be able
-to explain why the statistician performed each step to a labmate/your principal investigator. 
+Na podstawie tych informacji powinno być możliwe powtórzenie analiz a każdy etap analiz powinien być jasny i zrozumiały. Jeśli tak nie jest należy zapytać statystyka, tak aby nawet jeśli nie będzie możliwe powtórzenie analiz zrozumiałę będą jego poszczególne etapy.
 
 
-Contributors
+Autorzy
 ====================
 
+Na podstawie wersji angielskiej napisanej przez:
 * [Jeff Leek](http://biostat.jhsph.edu/~jleek/) - Wrote the initial version.
 * [L. Collado-Torres](http://bit.ly/LColladoTorres) - Fixed typos, added links.
 * [Nick Reich](http://people.umass.edu/nick/) - Added tips on storing data as text.
-* [Paweł Kleka](http://amu.edu.pl/~kleka) - Przygotował polską, zlokalizowaną wersję
+Przygotował wersję polską i zlokalizował dla Nauk Społecznych:
+* [Paweł Kleka](http://amu.edu.pl/~kleka)
 
 
