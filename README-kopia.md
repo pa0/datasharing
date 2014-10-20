@@ -1,35 +1,39 @@
-Jak udostępnić dane statystykowi?
+How to share data with a statistician
 ===========
 
-To jest przewodnik dla tych, którzy chcą skorzystać z pomocy stattystyka, co wiąże się z przekazaniem mu jakiś danych.
-Szczególnie mam na myśli
+This is a guide for anyone who needs to share data with a statistician. The target audiences I have in mind are:
 
-* współpracujących nad pracą badawczą
-* studentów i doktorantów, którzy potrzebują pomocy w obliczeniach lub konsultacji
+* Scientific collaborators who need statisticians to analyze data for them
+* Students or postdocs in scientific disciplines looking for consulting advice
+* Junior statistics students whose job it is to collate/clean data sets
 
-Celem tego przewodnika jest spisanie wytycznych, które ułatwią współpracę i wskażą najlepszy sposób udostępniania danych oraz unikania pułapek. Wszyscy statystycy szacują, że proces przygotowania danych zajmuje im 80-95% czasu poświęconego na analizy. Przestrzeganie zawartych tu wskazówek pozwoli uzyskać wyniki bardzo szybko, ponieważ czas statystyka będzie spożytkowany bardziej produktywnie.
+The goals of this guide are to provide some instruction on the best way to share data to avoid the most common pitfalls
+and sources of delay in the transition from data collection to data analysis. The [Leek group](http://biostat.jhsph.edu/~jleek/) works with a large
+number of collaborators and the number one source of variation in the speed to results is the status of the data
+when they arrive at the Leek group. Based on my conversations with other statisticians this is true nearly universally.
 
-Oczywiście statystycy przeważnie potrafią z każdej formy danych przygotować analizowalną formę, ale osoba zbierająca dane zrobi to lepiej i szybciej, ponieważ ma informacje na temat danych, które statystyk często musi zdobyć (co zajmuje czas).
+My strong feeling is that statisticians should be able to handle the data in whatever state they arrive. It is important
+to see the raw data, understand the steps in the processing pipeline, and be able to incorporate hidden sources of
+variability in one's data analysis. On the other hand, for many data types, the processing steps are well documented
+and standardized. So the work of converting the data from raw form to directly analyzable form can be performed 
+before calling on a statistician. This can dramatically speed the turnaround time, since the statistician doesn't
+have to work through all the pre-processing steps first. 
 
-Co powinien otrzymać statystyk?
+
+What you should deliver to the statistician
 ====================
 
-Dla przyśpieszenia i ułatwienia analiz dane powinny zawierać:
+For maximum speed in the analysis this is the information you should pass to a statistician:
 
-1. Dane surowe,
-2. zapisane wg schematu:
-	* każda zmienna zawiera jedną kolumnę
-	* każdy wiersz zawiera jedną obserwację
-	* każdy pomiar tworzy tabelę
-3. książkę kodową opisującą każdą zmienną z jej możliwymi wartościami (np. zakres, lub kategorie)
-4. oraz dokładny przepis jak z danych surowych uzyskać zmienną 
+1. The raw data.
+2. A [tidy data set](http://vita.had.co.nz/papers/tidy-data.pdf) 
+3. A code book describing each variable and its values in the tidy data set.  
+4. An explicit and exact recipe you used to go from 1 -> 2,3 
 
-Pokrótce o każdym z punktów: 
+Let's look at each part of the data package you will transfer. 
 
 
-### Surowe dane
-
-
+### The raw data
 
 It is critical that you include the rawest form of the data that you have access to. Here are some examples of the
 raw form of data:
@@ -182,6 +186,5 @@ Contributors
 * [Jeff Leek](http://biostat.jhsph.edu/~jleek/) - Wrote the initial version.
 * [L. Collado-Torres](http://bit.ly/LColladoTorres) - Fixed typos, added links.
 * [Nick Reich](http://people.umass.edu/nick/) - Added tips on storing data as text.
-* [Paweł Kleka](http://amu.edu.pl/~kleka) - Przygotował polską, zlokalizowaną wersję
 
 
