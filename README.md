@@ -47,7 +47,7 @@ Przeliczanie lub zmienianie danych jest częstym błędem, który sprawia, że s
 
 ### Schludny format danych
 
-Wielkość i format pliku nie ma znaczenia. Ważny jest porządek. Zgodnie z zasadą "garbage in = garbage out" to co jest potrzebne do analizy to przejrzystość sposobu zapisania danych. Na poziomie ogólnym można o tym poczytać u [Hadley Wickham](http://had.co.nz/) w [tym artykule](http://vita.had.co.nz/papers/tidy-data.pdf) lub zobaczyć na [tym filmie](http://vimeo.com/33727555). Przedstawiony tam punkt widzenia dotyczy pakietu [R](http://www.r-project.org/), który może jest, a może nie jest Tobie znany, ale ma zastosowanie w większości przypadków przygotowywania danych.
+Wielkość i format pliku nie ma znaczenia. Ważny jest porządek. Zgodnie z zasadą "garbage in = garbage out" to co jest potrzebne do analizy to przejrzystość sposobu zapisania danych. Na poziomie ogólnym można o tym poczytać u [Hadley Wickham](http://had.co.nz/) w [tym artykule](http://vita.had.co.nz/papers/tidy-data.pdf) lub zobaczyć na [tym filmie](http://vimeo.com/33727555). Przedstawiony tam punkt widzenia dotyczy pakietu [R](http://www.r-project.org/), który może jest, a może nie jest Tobie znany, ale ma zastosowanie w większości przypadków przygotowywania danych. O danych do SPSS [pisałem tu](http://www.staff.amu.edu.pl/~kleka/?p=460).
 
 Dla przypomnienia 4 reguły dotyczące przygotowania danych:
 
