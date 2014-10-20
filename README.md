@@ -35,13 +35,13 @@ Surowe dane mają tą cechę, że są efektem pomiaru nie poddanym żadnym manip
 1. żaden program komputerowy ich nie obrabiał
 1. nie były zmieniane żadne wartości
 1. nic nie było też usuwane
-1. nie były też dokonowane żadne podsumowania i analizy w pliku
+1. nie były też dokonywane żadne podsumowania i analizy w pliku
 
 Kilka przykładów:
 
-* The strange [binary file](http://en.wikipedia.org/wiki/Binary_file) your measurement machine spits out
-* The unformatted Excel file with 10 worksheets the company you contracted with sent you
-* The complicated [JSON](http://en.wikipedia.org/wiki/JSON) data you got from scraping the [Twitter API](https://twitter.com/twitterapi)
+* output z urządzenia pomiarowego [binary file](http://en.wikipedia.org/wiki/Binary_file)
+* dane z Twitera [JSON](http://en.wikipedia.org/wiki/JSON)
+* dane do [metaanalizy](http://github.com/pa0/datasharing/dane do metaanalizy.csv)
 
 Przeliczanie lub zmienianie danych jest częstym błedem, który sprawia, że statystyk musi najpierw wykonać dedektywistyczną pracę analilzując dlaczego dane wyglądają właśnie w taki sposób. 
 
@@ -81,7 +81,7 @@ Braki danych powinny być zakodowane wartością `NA`.
 Wszelkie informacje zawarte w plikach z danymi powinny być dostępne w postaci tekstowej, tzn. jeśli np. w Excelu kolorami zaznaczone są osoby o określonej płci lub grupy to po imporcie do pakietu statystycznego ta informacja zginie.
 
 
-Czego można się spodziewać po statystyki
+Czego można się spodziewać po statystyku
 ====================
 
 Jeśli otrzyma on tak przygotowane dane wynik analiz będzie dostępny dużo szybciej. Oczywiście nie oznacza to braku pytań i wiele sytuacji z danymi wymyka się z tych ram. Ale ich przestrzeganie pozwoli ograniczyć do minimum _inżynierię wsteczną_ aby uzyskać czyste, analizowalne dane.
@@ -92,16 +92,17 @@ Dobrze zrobiona analiza statystyczna zawiera:
 1. Skrypt do ich przeprowadzenia samodzielnie (w przypadku R)
 1. Pliki wynikowe w postaci raportu z tabelami i rycinami, które analiza wygenerowała
 
-Na podstawie tych informacji powinno być możliwe powtórzenie analiz a każdy etap analiz powinien być jasny i zrozumiały. Jeśli tak nie jest należy zapytać statystyka, tak aby nawet jeśli nie będzie możliwe powtórzenie analiz zrozumiałę będą jego poszczególne etapy.
+Na podstawie tych informacji powinno być możliwe powtórzenie analiz a każdy etap analiz powinien być jasny i zrozumiały. Jeśli tak nie jest należy zapytać statystyka, tak aby nawet jeśli nie będzie możliwe powtórzenie analiz zrozumiałe będą jego poszczególne etapy.
 
 
-Autorzy
+#### Autorzy
 ====================
 
 Na podstawie wersji angielskiej napisanej przez:
 * [Jeff Leek](http://biostat.jhsph.edu/~jleek/) - Wrote the initial version.
 * [L. Collado-Torres](http://bit.ly/LColladoTorres) - Fixed typos, added links.
 * [Nick Reich](http://people.umass.edu/nick/) - Added tips on storing data as text.
+
 Przygotował wersję polską i zlokalizował dla Nauk Społecznych:
 * [Paweł Kleka](http://amu.edu.pl/~kleka)
 
