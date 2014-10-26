@@ -92,7 +92,8 @@ Dobrze zrobiona analiza statystyczna zawiera:
 1. Skrypt do ich przeprowadzenia samodzielnie (w przypadku R)
 1. Pliki wynikowe w postaci raportu z tabelami i rycinami, które analiza wygenerowała
 
-Na podstawie tych informacji powinno być możliwe powtórzenie analiz a każdy etap analiz powinien być jasny i zrozumiały. Jeśli tak nie jest należy zapytać statystyka, tak aby nawet jeśli nie będzie możliwe powtórzenie analiz zrozumiałe będą jego poszczególne etapy.
+Na podstawie tych informacji powinno być możliwe powtórzenie analiz, a każdy ich etap powinien być jasny i zrozumiały.
+Jeśli tak nie jest należy pytać statystyka do skutku, tak aby nawet jeśli nie będzie możliwe powtórzenie analiz, to zrozumiałe będą jego poszczególne etapy.
 
 
 #### Autorzy
