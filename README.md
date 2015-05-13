@@ -11,7 +11,7 @@ Celem tego przewodnika jest spisanie wytycznych, które ułatwią współpracę 
 
 Oczywiście statystycy przeważnie potrafią z każdej formy danych przygotować analizowalną formę, ale osoba zbierająca dane zrobi to lepiej i szybciej, ponieważ ma informacje na temat danych, które statystyk często musi zdobyć (co zajmuje czas).
 
-Co powinien otrzymać statystyk?
+Co powinien otrzymać statystyk?  
 ====================
 
 Dla przyśpieszenia i ułatwienia analiz dane powinny być:
